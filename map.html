@@ -40,16 +40,21 @@
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWFkaXRoamtyaXNobmEiLCJhIjoiY21kOGowdXNuMDBvdTJuc2hmcDRicWd4cCJ9.Oen1Px2XlryBV7erFdlTyA';
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
-        enableHighAccuracy: true
-      });
-    } else {
-      alert("Geolocation is not supported by your browser.");
-    }
+    const keralaCoords = [76.631937, 8.914216];
+
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+    //     enableHighAccuracy: true
+    //   });
+    // } else {
+    //   alert("Geolocation is not supported by your browser.");
+    // }
+
+    successLocation(keralaCoords);
 
     function successLocation(position) {
-      const userCoords = [position.coords.longitude, position.coords.latitude];
+    //   const userCoords = [position.coords.longitude, position.coords.latitude];
+      const userCoords = position;
 
       const map = new mapboxgl.Map({
         container: 'map',
